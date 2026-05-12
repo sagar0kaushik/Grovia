@@ -1,0 +1,60 @@
+const products = [
+  {
+    id:1,
+    name:"Fresh Apple",
+    price:120,
+    category:"Fruits",
+    image:"https://www.shutterstock.com/image-photo/box-fresh-apples-on-wooden-600nw-2472875575.jpg",
+  },
+  {
+    id:2,
+    name:"Milk",
+    price:60,
+    category:"Dairy",
+    image:"https://static.vecteezy.com/system/resources/thumbnails/057/550/617/small/vintage-glass-milk-bottle-filled-with-fresh-white-milk-against-warm-beige-background-in-soft-natural-lighting-photo.jpg",
+  },
+  {
+    id:3,
+    name:"Tomato",
+    price:40,
+    category:"Vegetable",
+    image:"https://t4.ftcdn.net/jpg/14/87/67/75/360_F_1487677597_rT7J1Vb3lw68sq9tGmqIALHPUBd8yhkh.jpg",
+  },
+  {
+    id:4,
+    name:"Bread",
+    price:50,
+    category:"Bakery",
+    image:"https://images.pexels.com/photos/105861/pexels-photo-105861.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  },
+  {
+    id:5,
+    name:"Orange",
+    price:90,
+    category:"Fruits",
+    image:"https://static.vecteezy.com/system/resources/previews/024/591/920/non_2x/tasty-and-delicious-orange-fruit-fresh-and-healthy-in-basket-free-photo.jpg",
+  },
+  {
+    id:6,
+    name:"Rice",
+    price:700,
+    category:"Grains",
+    image:"https://media.istockphoto.com/id/1190084217/photo/white-rice-in-a-sack-on-a-wooden-background.jpg?s=612x612&w=0&k=20&c=PKsMAtdoi9c2wJMkXNoyYsv9UvGSXVDaQz3jLZLy6hM=",
+  },
+  {
+    id:7,
+    name:"Potato",
+    price:30,
+    category:"Vegetable",
+    image:"https://wallpapers.com/images/hd/potato-1920-x-1200-background-l1g26xg8uljza9b1.jpg",
+  },
+  {
+    id:8,
+    name:"Eggs",
+    price:90,
+    category:"Protein",
+    image:"https://t3.ftcdn.net/jpg/19/78/82/68/360_F_1978826891_BU9ENekvLUTRyBCtnoX8HU7CMgpObUYU.jpg",
+  },
+]
+
+export default products
