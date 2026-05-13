@@ -7,3 +7,7 @@ body{
   background:#f6f1e7;
   font-family:sans-serif;
 }
+
+html{
+  scroll-behavior:smooth;
+}

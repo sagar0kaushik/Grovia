@@ -1,32 +1,71 @@
 const express = require("express");
+
 const mongoose = require("mongoose");
+
 const cors = require("cors");
 
 require("dotenv").config();
 
-const userRoutes = require("./routes/userRoutes");
-const productRoutes = require("./routes/productRoutes");
-const cartRoutes = require("./routes/cartRoutes");
-const orderRoutes = require("./routes/orderRoutes");
+const userRoutes =
+require("./routes/userRoutes");
+
+const productRoutes =
+require("./routes/productRoutes");
+
+const orderRoutes =
+require("./routes/orderRoutes");
 
 const app = express();
+
+
+// MIDDLEWARES
 
 app.use(cors());
 
 app.use(express.json());
 
-mongoose.connect(process.env.MONGO_URI)
-.then(() => console.log("MongoDB Connected"))
-.catch((err) => console.log(err));
+
+// ROUTES
 
 app.use("/api/users", userRoutes);
 
 app.use("/api/products", productRoutes);
 
-app.use("/api/cart", cartRoutes);
-
 app.use("/api/orders", orderRoutes);
 
-app.listen(5000, () => {
-  console.log("Server Running On Port 5000");
+
+// HOME ROUTE
+
+app.get("/", (req,res) => {
+
+  res.send("Grovia Backend Running");
+
+});
+
+
+// MONGODB CONNECTION
+
+mongoose.connect(process.env.MONGO_URI)
+
+.then(() => {
+
+  console.log("MongoDB Connected");
+
+})
+
+.catch((error) => {
+
+  console.log(error);
+
+});
+
+
+// SERVER
+
+const PORT = 5000;
+
+app.listen(PORT, () => {
+
+  console.log(`Server Running On Port ${PORT}`);
+
 });

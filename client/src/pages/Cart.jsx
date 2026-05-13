@@ -1,8 +1,12 @@
+// Cart.jsx
+
 import { useContext, useState } from "react";
 
 import { StoreContext } from "../context/StoreContext";
 
 import Navbar from "../components/Navbar";
+
+import API from "../api";
 
 const Cart = () => {
 
@@ -58,15 +62,53 @@ const Cart = () => {
 
   // ORDER SUCCESS
 
-  const handleOrder = () => {
+  const handleOrder = async() => {
 
-    alert("Order Placed Successfully");
+  try{
+
+    const response =
+    await API.post(
+
+      "/orders",
+
+      {
+
+        products:cart,
+
+        total:totalPrice
+
+      },
+
+      {
+
+        headers:{
+
+          Authorization:
+          `Bearer ${token}`
+
+        }
+
+      }
+
+    );
+
+    alert(response.data.message);
 
     clearCart();
 
     setPopup(false);
 
-  };
+  }
+
+  catch(error){
+
+    console.log(error);
+
+    alert("Order Failed");
+
+  }
+
+};
 
   return (
 

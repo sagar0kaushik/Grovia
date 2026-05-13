@@ -17,7 +17,11 @@ const Home = () => {
 
       <Hero />
 
-      <Products search={search} />
+      <section id="products">
+
+  <Products search={search} />
+
+</section>
 
       <Footer />
     </>

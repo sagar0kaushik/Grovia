@@ -252,42 +252,74 @@ const Hero = () => {
         mt-10
         ">
 
-          <button className="
-          bg-[#6B7A52]
-          text-white
-          px-8
-          py-4
-          rounded-2xl
-          shadow-lg
-          transition-all
-          duration-150
-          hover:scale-105
-          active:scale-95
-          hover:shadow-2xl
-          ">
+          <button
 
-            Shop Premium
+  onClick={() => {
 
-          </button>
+    document
+      .getElementById("products")
+      ?.scrollIntoView({
 
-          <button className="
-          bg-white/40
-          backdrop-blur-lg
-          border
-          border-white/30
-          px-8
-          py-4
-          rounded-2xl
-          shadow-lg
-          transition-all
-          duration-150
-          hover:scale-105
-          active:scale-95
-          ">
+        behavior:"smooth"
 
-            Explore Collection
+      });
 
-          </button>
+  }}
+
+  className="
+  bg-[#6B7A52]
+  text-white
+  px-8
+  py-4
+  rounded-2xl
+  shadow-lg
+  transition-all
+  duration-150
+  hover:scale-105
+  active:scale-95
+  hover:shadow-2xl
+  "
+
+>
+
+  Shop Premium
+
+</button>
+
+          <button
+
+  onClick={() => {
+
+    document
+      .getElementById("products")
+      ?.scrollIntoView({
+
+        behavior:"smooth"
+
+      });
+
+  }}
+
+  className="
+  bg-white/40
+  backdrop-blur-lg
+  border
+  border-white/30
+  px-8
+  py-4
+  rounded-2xl
+  shadow-lg
+  transition-all
+  duration-150
+  hover:scale-105
+  active:scale-95
+  "
+
+>
+
+  Explore Collection
+
+</button>
 
         </div>
 

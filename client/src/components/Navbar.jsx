@@ -1,3 +1,5 @@
+// Navbar.jsx
+
 import {
   ShoppingCart,
   Heart,
@@ -8,13 +10,9 @@ import {
   Package
 } from "lucide-react";
 
-import {
-  Link
-} from "react-router-dom";
-
-import {
-  useState
-} from "react";
+import {Link} from "react-router-dom";
+import {useState,useEffect} from "react";
+import API from "../api";
 
 const Navbar = ({
   search = "",
@@ -29,6 +27,53 @@ const Navbar = ({
 
   const [profileOpen, setProfileOpen] =
   useState(false);
+
+  const [orderCount, setOrderCount] =
+  useState(0);
+
+  useEffect(() => {
+
+  const fetchOrders = async() => {
+
+    try{
+
+      if(!token) return;
+
+      const response =
+      await API.get(
+
+        "/orders/my-orders",
+
+        {
+
+          headers:{
+
+            Authorization:
+            `Bearer ${token}`
+
+          }
+
+        }
+
+      );
+
+      setOrderCount(
+        response.data.length
+      );
+
+    }
+
+    catch(error){
+
+      console.log(error);
+
+    }
+
+  };
+
+  fetchOrders();
+
+}, [token]);
 
   const handleLogout = () => {
 
@@ -306,7 +351,7 @@ const Navbar = ({
                           mt-1
                           ">
 
-                            4
+                            {orderCount}
 
                           </h2>
 

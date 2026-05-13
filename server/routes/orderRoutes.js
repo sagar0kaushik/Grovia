@@ -50,4 +50,37 @@ router.post("/", auth, async(req,res)=>{
 
 });
 
+
+// GET USER ORDERS
+
+router.get(
+  "/my-orders",
+  auth,
+  async(req,res)=>{
+
+    try{
+
+      const orders =
+      await Order.find({
+
+        userId:req.user.id
+
+      });
+
+      res.json(orders);
+
+    }
+
+    catch(error){
+
+      res.json({
+
+        message:error.message
+
+      });
+
+    }
+
+});
+
 module.exports = router;

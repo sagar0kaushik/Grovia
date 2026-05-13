@@ -32,51 +32,84 @@ const Login = () => {
 
   };
 
+const emailRegex =
+/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
   const handleSubmit = async() => {
 
-    try{
+  // EMAIL VALIDATION
 
-      const endpoint =
-      isSignup
-      ? "/users/signup"
-      : "/users/login";
+  if(!emailRegex.test(formData.email)){
 
-      const response =
-      await API.post(
+    alert("Enter Valid Email");
 
-        endpoint,
+    return;
 
-        formData
+  }
+
+  // PASSWORD VALIDATION
+
+  if(formData.password.length < 6){
+
+    alert(
+      "Password must be at least 6 characters"
+    );
+
+    return;
+
+  }
+
+  try{
+
+    const endpoint =
+
+    isSignup
+
+    ? "/users/signup"
+
+    : "/users/login";
+
+    const response =
+
+    await API.post(
+
+      endpoint,
+
+      formData
+
+    );
+
+    // LOGIN TOKEN
+
+    if(response.data.token){
+
+      localStorage.setItem(
+
+        "token",
+
+        response.data.token
 
       );
 
-      // LOGIN TOKEN
-
-      if(response.data.token){
-
-        localStorage.setItem(
-
-          "token",
-
-          response.data.token
-
-        );
-
-      }
-
-      alert(response.data.message);
-
-      navigate("/");
-
     }
 
-    catch(error){
+    alert(response.data.message);
 
-      alert(error.message);
+    navigate("/");
 
-    }
+  }
 
-  };
+  catch(error){
+
+    alert(error.response?.data?.message ||
+
+    "Something Went Wrong");
+
+  }
+
+};
+
+
 
   return (
 
