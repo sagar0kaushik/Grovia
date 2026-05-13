@@ -72,7 +72,7 @@ Grovia/
 ## Clone Repository
 
 ```bash
-git clone YOUR_GITHUB_REPO_LINK
+git clone https://github.com/sagar0kaushik/Grovia
 ```
 
 ---
@@ -102,9 +102,9 @@ npm run dev
 Create `.env` inside the server folder:
 
 ```env
-MONGO_URI=YOUR_MONGODB_URI
+MONGO_URI=mongodb://sagarkaushik584_db_user:sagar6377@ac-nvardaf-shard-00-00.xbvlkw3.mongodb.net:27017,ac-nvardaf-shard-00-01.xbvlkw3.mongodb.net:27017,ac-nvardaf-shard-00-02.xbvlkw3.mongodb.net:27017/grovia?ssl=true&replicaSet=atlas-f4qgdr-shard-0&authSource=admin&appName=Cluster0
 
-JWT_SECRET=YOUR_SECRET_KEY
+JWT_SECRET=grovia_secret_key
 ```
 
 ---
