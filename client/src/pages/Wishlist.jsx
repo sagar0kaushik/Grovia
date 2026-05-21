@@ -23,7 +23,7 @@ const Wishlist = () => {
         {wishlist.map((item) => (
 
           <div
-            key={item.id}
+            key={item._id}
             className="bg-white p-5 rounded-xl mb-5 flex justify-between"
           >
 
@@ -42,7 +42,7 @@ const Wishlist = () => {
               <button
                 onClick={() => {
                     addToCart(item);
-                     removeWishlist(item.id);
+                     removeWishlist(item._id);
                 }}
                 className="bg-[#6B7A52] text-white px-4 py-2 rounded-xl"
               >
@@ -51,7 +51,7 @@ const Wishlist = () => {
 
               <button
                 onClick={() =>
-                  removeWishlist(item.id)
+                  removeWishlist(item._id)
                 }
                 className="bg-red-500 text-white px-4 py-2 rounded-xl"
               >

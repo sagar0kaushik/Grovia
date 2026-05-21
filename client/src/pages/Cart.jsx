@@ -180,7 +180,7 @@ const Cart = () => {
 
               <div
 
-                key={item.id}
+                key={item._id}
 
                 className="
                 bg-white/40
@@ -241,7 +241,7 @@ const Cart = () => {
                     <button
 
                       onClick={() =>
-                        decreaseQty(item.id)
+                        decreaseQty(item._id)
                       }
 
                       className="
@@ -279,7 +279,7 @@ const Cart = () => {
                     <button
 
                       onClick={() =>
-                        increaseQty(item.id)
+                        increaseQty(item._id)
                       }
 
                       className="
@@ -330,7 +330,7 @@ const Cart = () => {
                   <button
 
                     onClick={() =>
-                      removeFromCart(item.id)
+                      removeFromCart(item._id)
                     }
 
                     className="
