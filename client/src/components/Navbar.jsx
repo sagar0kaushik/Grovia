@@ -1,14 +1,8 @@
 // Navbar.jsx
 
-import {
-  ShoppingCart,
-  Heart,
-  User,
-  Menu,
-  X,
-  ChevronDown,
-  Package
-} from "lucide-react";
+
+
+import { ShoppingCart, Heart, User, Menu, X, ChevronDown, Package } from "lucide-react";
 
 import {Link} from "react-router-dom";
 import {useState,useEffect} from "react";
@@ -19,8 +13,17 @@ const Navbar = ({
   setSearch = () => {}
 }) => {
 
-  const token =
-  localStorage.getItem("token");
+  const token = localStorage.getItem("token");
+
+  const user =
+
+localStorage.getItem("user")
+
+? JSON.parse(
+    localStorage.getItem("user")
+  )
+
+: null;
 
   const [menuOpen, setMenuOpen] =
   useState(false);
@@ -78,6 +81,8 @@ const Navbar = ({
   const handleLogout = () => {
 
     localStorage.removeItem("token");
+
+    localStorage.removeItem("user");
 
     window.location.reload();
 
@@ -150,8 +155,8 @@ const Navbar = ({
             outline-none
             border
             border-white/30
-            w-65
-            focus:w-75
+            w-[260px]
+            focus:w-[320px]
             transition-all
             duration-300
             "
@@ -192,6 +197,29 @@ const Navbar = ({
             />
 
           </Link>
+
+          {/* ADMIN BUTTON */}
+
+{
+  user?.role === "admin" && (
+
+    <Link
+      to="/admin"
+      className="
+      bg-[#4A3428]
+      text-white
+      px-5
+      py-2
+      rounded-xl
+      "
+    >
+
+      Admin Panel
+
+    </Link>
+
+  )
+}
 
           {/* PROFILE / LOGIN */}
 
@@ -304,7 +332,7 @@ const Navbar = ({
                           text-[#4A3428]
                           ">
 
-                            Grovia User
+                            {user?.name}
 
                           </h1>
 
@@ -558,6 +586,27 @@ const Navbar = ({
             >
               Cart
             </Link>
+
+            {
+  user?.role === "admin" && (
+
+    <Link
+      to="/admin"
+      className="
+      bg-[#4A3428]
+      text-white
+      py-3
+      rounded-xl
+      text-center
+      "
+    >
+
+      Admin Panel
+
+    </Link>
+
+  )
+}
 
             {
 

@@ -6,6 +6,9 @@ const cors = require("cors");
 
 require("dotenv").config();
 
+
+// ROUTES
+
 const userRoutes =
 require("./routes/userRoutes");
 
@@ -15,7 +18,18 @@ require("./routes/productRoutes");
 const orderRoutes =
 require("./routes/orderRoutes");
 
+const cartRoutes =
+require("./routes/cartRoutes");
+
+const wishlistRoutes =
+require("./routes/wishlistRoutes");
+
+
+// APP
+
 const app = express();
+
+
 
 
 // MIDDLEWARES
@@ -32,6 +46,10 @@ app.use("/api/users", userRoutes);
 app.use("/api/products", productRoutes);
 
 app.use("/api/orders", orderRoutes);
+
+app.use("/api/cart", cartRoutes);
+
+app.use("/api/wishlist", wishlistRoutes);
 
 
 // HOME ROUTE

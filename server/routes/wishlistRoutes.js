@@ -2,30 +2,30 @@ const express = require("express");
 
 const router = express.Router();
 
-const Cart =
-require("../models/Cart");
+const Wishlist =
+require("../models/Wishlist");
 
 const auth =
 require("../middleware/auth");
 
 
-// GET CART
+// GET WISHLIST
 
 router.get("/", auth, async(req,res)=>{
 
   try{
 
-    let cart =
-    await Cart.findOne({
+    let wishlist =
+    await Wishlist.findOne({
 
       userId:req.user.id
 
     });
 
-    if(!cart){
+    if(!wishlist){
 
-      cart =
-      await Cart.create({
+      wishlist =
+      await Wishlist.create({
 
         userId:req.user.id,
 
@@ -35,7 +35,7 @@ router.get("/", auth, async(req,res)=>{
 
     }
 
-    res.json(cart);
+    res.json(wishlist);
 
   }
 
@@ -52,14 +52,14 @@ router.get("/", auth, async(req,res)=>{
 });
 
 
-// SAVE CART
+// SAVE WISHLIST
 
 router.post("/", auth, async(req,res)=>{
 
   try{
 
-    const cart =
-    await Cart.findOneAndUpdate(
+    const wishlist =
+    await Wishlist.findOneAndUpdate(
 
       {
 
@@ -83,7 +83,7 @@ router.post("/", auth, async(req,res)=>{
 
     );
 
-    res.json(cart);
+    res.json(wishlist);
 
   }
 
